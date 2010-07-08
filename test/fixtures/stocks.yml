@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  exchange: MyString
+  company: MyString
+
+two:
+  exchange: MyString
+  company: MyString

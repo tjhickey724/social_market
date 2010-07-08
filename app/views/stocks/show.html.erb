@@ -1,0 +1,13 @@
+<p>
+  <b>Exchange:</b>
+  <%=h @stock.exchange %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%=h @stock.company %>
+</p>
+
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

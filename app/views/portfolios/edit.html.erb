@@ -1,0 +1,24 @@
+<h1>Editing portfolio</h1>
+
+<% form_for(@portfolio) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :stock_id %><br />
+    <%= f.text_field :stock_id %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @portfolio %> |
+<%= link_to 'Back', portfolios_path %>
