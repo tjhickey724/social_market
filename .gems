@@ -1,1 +1,1 @@
-autholog --version '2.1.5' --source github.com/binarylogic/authlogic/tree/master
+autholog --version '2.1.5' --source github.com/binarylogic/authlogic/zipball/master
