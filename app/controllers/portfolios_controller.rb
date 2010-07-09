@@ -16,6 +16,15 @@ class PortfoliosController < ApplicationController
     @stock = get_stock(@exch, @sym) 
     @qty = params[:qty]
     @stockholding = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@stock.id)
+    puts @stockholding
+    puts @the_user.id
+    puts @stock.id
+    if @stockholding==nil
+      @stockholding= Portfolio.new(:user_id => @the_user.id, :stock_id => @stock.id, :quantity => 0)
+      @stockholding.save!
+      puts "created stockholding?"
+    end
+
     @stockholding.quantity += @qty.to_i
     @stockholding.save!
   
