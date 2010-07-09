@@ -1,1 +1,1 @@
-authlog --version '2.1.5' 
+authlog --version '2.1.5' --source 'http://github.com/binarylogic/authlogic'
