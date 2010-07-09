@@ -1,21 +1,39 @@
 class PortfoliosController < ApplicationController
   
   def list
-    
+    @the_user = current_user
+    @x = Portfolio.find(:all, :conditions => ["user_id= ?", @the_user.id])
+    @y = @x.collect do |a|
+      " #{stock_id_to_symbol(a.stock_id)} --> #{a.quantity} "
+    end
   end
   
   def buy
+    @the_user = current_user
+    @the_user_id = @the_user.id
     @exch = params[:exchange]
     @sym = params[:symbol]
+    @stock = get_stock(@exch, @sym) 
     @qty = params[:qty]
+    @stockholding = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@stock.id)
+    @stockholding.quantity += @qty.to_i
+    @stockholding.save!
+  
     
   end
   
   def sell
+    @the_user = current_user
+    @the_user_id = @the_user.id
     @exch = params[:exchange]
     @sym = params[:symbol]
+    @stock = get_stock(@exch, @sym) 
     @qty = params[:qty]
-      
+    @stockholding = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@stock.id)
+    @stockholding.quantity -= @qty.to_i
+    @stockholding.save!
+  
+    
   end
   
   
@@ -100,4 +118,15 @@ class PortfoliosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def stock_id_to_symbol s
+    Stock.find_by_id(s).company
+  end
+  
+  def get_stock exch, sym
+    z = Stock.find_by_exchange_and_company(exch,sym)
+  end
+  
 end

@@ -1,2 +1,8 @@
 <h1>Your portfolio will appear here ...</h1>
-You are user <%=h @current_user %>
+You are user <%=h @the_user.username %> <br/>
+your stocks are <%= @x %> <br/>
+<ul>
+<%-  @y.each do |s| -%>
+<li> <%= s %> </li>
+<% end %>
+</ul>
