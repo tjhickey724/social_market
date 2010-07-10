@@ -10,7 +10,6 @@
 <body>
 <div id="container">
 
-	
 	<div id="user_nav">
 		<% if current_user %>
 		  <%= link_to "Edit Profile", edit_user_path(:current) %> ||
@@ -20,10 +19,22 @@
 		  <%= link_to "Login", login_path  %>
 		<% end %>
 	</div>
+<div id="mainhead">The Social Market Game
+	
+
+	
+</div>
+	
+	
+	<div id="mainbody">
+		
 
 <p style="color: green"><%= notice %></p>
 
 <%= yield %>
+  
+  
+  </div>
 </div>
 </body>
 </html>
