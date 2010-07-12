@@ -8,6 +8,8 @@ class PortfoliosController < ApplicationController
     end
   end
   
+
+ 
   def buy
     @the_user = current_user
     @the_user_id = @the_user.id

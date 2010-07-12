@@ -11,6 +11,7 @@
 <div id="container">
 
 	<div id="user_nav">
+		<div class="box">  
 		<% if current_user %>
 		  <%= link_to "Edit Profile", edit_user_path(:current) %> ||
 		  <%= link_to "Logout", logout_path %>
@@ -18,6 +19,7 @@
 		  <%= link_to "Register", new_user_path  %> |
 		  <%= link_to "Login", login_path  %>
 		<% end %>
+		</div>
 	</div>
 <div id="mainhead">The Social Market Game
 	

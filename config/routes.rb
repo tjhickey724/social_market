@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
  
   map.connect 'stocks/welcome', :controller => 'stocks', :action => 'welcome'
   map.connect 'portfolio/list', :controller => 'portfolios', :action => 'list'
+
   map.connect 'portfolio/buy/:exchange/:symbol/:qty', :controller => 'portfolios', :action => 'buy'
   map.connect 'portfolio/sell/:exchange/:symbol/:qty', :controller => 'portfolios', :action => 'sell'
  

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  helper_method :current_user
+  helper_method :current_user, :current_username
   
   protected
    def authorize
@@ -26,7 +26,12 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
+    if (params[:user])
+      @current_user = User.find_by_username(params[:user])
+    end
+    return @current_user
   end
+  
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
