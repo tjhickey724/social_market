@@ -6,6 +6,10 @@ class PortfoliosController < ApplicationController
     @y = @x.collect do |a|
       " #{stock_id_to_symbol(a.stock_id)} --> #{a.quantity} "
     end
+    respond_to do |format|
+      format.html
+      format.json {render :json => @y}
+    end
   end
   
 

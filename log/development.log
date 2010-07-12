@@ -36643,3 +36643,927 @@ Processing PortfoliosController#list (for 127.0.0.1 at 2010-07-12 14:32:54) [GET
 Rendering template within layouts/application
 Rendering portfolios/list
 Completed in 89ms (View: 3, DB: 1) | 200 OK [http://localhost/portfolio/list?user=tim]
+
+
+Processing PortfoliosController#list (for 127.0.0.1 at 2010-07-12 14:41:52) [GET]
+  Parameters: {"user"=>"tim"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.3ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE (user_id= 1) [0m
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) LIMIT 1[0m
+  [4;36;1mStock Load (0.2ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering portfolios/list
+Completed in 28ms (View: 3, DB: 1) | 200 OK [http://localhost/portfolio/list?user=tim]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-12 14:41:58) [GET]
+  Parameters: {"user"=>"tim"}
+
+ActionController::RoutingError (No route matches "/portfolio/list.xml" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PortfoliosController#list to xml (for 127.0.0.1 at 2010-07-12 14:44:17) [GET]
+  Parameters: {"user"=>"tim"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.3ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE (user_id= 1) [0m
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) LIMIT 1[0m
+  [4;36;1mStock Load (0.2ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) LIMIT 1[0m
+
+RuntimeError (Not all elements respond to to_xml):
+  app/controllers/portfolios_controller.rb:11:in `list'
+  app/controllers/portfolios_controller.rb:9:in `list'
+
+Rendered rescues/_trace (34.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PortfoliosController#list to xml (for 127.0.0.1 at 2010-07-12 14:44:57) [GET]
+  Parameters: {"user"=>"tim"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.3ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE (user_id= 1) [0m
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) LIMIT 1[0m
+  [4;36;1mStock Load (0.2ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) LIMIT 1[0m
+Completed in 24ms (View: 1, DB: 1) | 406 Not Acceptable [http://localhost/portfolio/list.xml?user=tim]
+
+
+Processing PortfoliosController#list to json (for 127.0.0.1 at 2010-07-12 14:45:02) [GET]
+  Parameters: {"user"=>"tim"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.3ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE (user_id= 1) [0m
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) LIMIT 1[0m
+  [4;36;1mStock Load (0.2ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) LIMIT 1[0m
+Completed in 97ms (View: 1, DB: 1) | 200 OK [http://localhost/portfolio/list.json?user=tim]
+
+
+Processing PortfoliosController#list to html (for 127.0.0.1 at 2010-07-12 14:45:26) [GET]
+  Parameters: {"user"=>"tim"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.4ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE (user_id= 1) [0m
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) LIMIT 1[0m
+  [4;36;1mStock Load (0.2ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering portfolios/list
+Completed in 37ms (View: 3, DB: 1) | 200 OK [http://localhost/portfolio/list.html?user=tim]
+
+
+Processing PortfoliosController#buy (for 127.0.0.1 at 2010-07-12 14:46:36) [GET]
+  Parameters: {"qty"=>"500", "symbol"=>"BP", "exchange"=>"NYSE"}
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/portfolios_controller.rb:19:in `buy'
+
+Rendered rescues/_trace (27.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PortfoliosController#buy (for 127.0.0.1 at 2010-07-12 14:46:43) [GET]
+  Parameters: {"qty"=>"500", "symbol"=>"BP", "exchange"=>"NYSE", "user"=>"tim"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mStock Load (0.1ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."exchange" = 'NYSE' AND "stocks"."company" = 'BP') LIMIT 1[0m
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/portfolios_controller.rb:24:in `buy'
+
+Rendered rescues/_trace (32.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PortfoliosController#buy (for 127.0.0.1 at 2010-07-12 14:47:20) [GET]
+  Parameters: {"qty"=>"500", "symbol"=>"BP", "exchange"=>"NYSE", "pw"=>"zzz", "user"=>"tim"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mStock Load (0.2ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."exchange" = 'NYSE' AND "stocks"."company" = 'BP') LIMIT 1[0m
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/portfolios_controller.rb:24:in `buy'
+
+Rendered rescues/_trace (28.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-12 14:48:23) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 25ms (View: 12, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-12 14:48:27) [GET]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 69ms (View: 59, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-07-12 14:48:33) [POST]
+  Parameters: {"commit"=>"Create", "user_session"=>{"username"=>"Tim", "password"=>"jbs2010....yes"}, "authenticity_token"=>"qUD46QWjTy4SHfLSXW+0BRtHMRO3PmJKQO4mPZDjy3k="}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".username) = 'tim') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 264ms (DB: 0) | 302 Found [http://localhost/user_sessions]
+
+
+Processing StocksController#welcome (for 127.0.0.1 at 2010-07-12 14:48:33) [GET]
+Rendering template within layouts/application
+Rendering stocks/welcome
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-07-12 14:48:58) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing StocksController#welcome (for 127.0.0.1 at 2010-07-12 14:48:58) [GET]
+Rendering template within layouts/application
+Rendering stocks/welcome
+Completed in 83ms (View: 82, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing StocksController#index (for 127.0.0.1 at 2010-07-12 14:49:11) [GET]
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 35ms (View: 28, DB: 1) | 200 OK [http://localhost/stocks]
+
+
+Processing PortfoliosController#buy (for 127.0.0.1 at 2010-07-12 14:50:07) [GET]
+  Parameters: {"qty"=>"100", "symbol"=>"GOOG", "exchange"=>"NYSE"}
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/portfolios_controller.rb:19:in `buy'
+
+Rendered rescues/_trace (32.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PortfoliosController#buy (for 127.0.0.1 at 2010-07-12 14:50:15) [GET]
+  Parameters: {"qty"=>"100", "symbol"=>"GOOG", "exchange"=>"NYSE", "user"=>"tim"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;35;1mStock Load (0.3ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."exchange" = 'NYSE' AND "stocks"."company" = 'GOOG') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.3ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE ("portfolios"."user_id" = 1 AND "portfolios"."stock_id" = 1) LIMIT 1[0m
+  [4;35;1mPortfolio Update (0.3ms)[0m   [0mUPDATE "portfolios" SET "updated_at" = '2010-07-12 18:50:15', "quantity" = 763 WHERE "id" = 2[0m
+Rendering template within layouts/application
+Rendering portfolios/buy
+Completed in 39ms (View: 2, DB: 1) | 200 OK [http://localhost/portfolio/buy/NYSE/GOOG/100?user=tim]
+
+
+Processing PortfoliosController#buy (for 127.0.0.1 at 2010-07-12 14:50:25) [GET]
+  Parameters: {"qty"=>"100", "symbol"=>"GOOG", "exchange"=>"NYSE", "user"=>"tjh"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'tjh') LIMIT 1[0m
+  [4;35;1mStock Load (0.3ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."exchange" = 'NYSE' AND "stocks"."company" = 'GOOG') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.3ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE ("portfolios"."user_id" = 2 AND "portfolios"."stock_id" = 1) LIMIT 1[0m
+  [4;35;1mPortfolio Update (0.3ms)[0m   [0mUPDATE "portfolios" SET "updated_at" = '2010-07-12 18:50:25', "quantity" = 306 WHERE "id" = 4[0m
+Rendering template within layouts/application
+Rendering portfolios/buy
+Completed in 40ms (View: 2, DB: 1) | 200 OK [http://localhost/portfolio/buy/NYSE/GOOG/100?user=tjh]
+
+
+Processing PortfoliosController#sell (for 127.0.0.1 at 2010-07-12 14:50:31) [GET]
+  Parameters: {"qty"=>"100", "symbol"=>"GOOG", "exchange"=>"NYSE", "user"=>"tjh"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'tjh') LIMIT 1[0m
+  [4;35;1mStock Load (0.3ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."exchange" = 'NYSE' AND "stocks"."company" = 'GOOG') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.3ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE ("portfolios"."user_id" = 2 AND "portfolios"."stock_id" = 1) LIMIT 1[0m
+  [4;35;1mPortfolio Update (0.3ms)[0m   [0mUPDATE "portfolios" SET "updated_at" = '2010-07-12 18:50:31', "quantity" = 206 WHERE "id" = 4[0m
+Rendering template within layouts/application
+Rendering portfolios/sell
+Completed in 38ms (View: 2, DB: 1) | 200 OK [http://localhost/portfolio/sell/NYSE/GOOG/100?user=tjh]
+
+
+Processing PortfoliosController#list to html (for 127.0.0.1 at 2010-07-12 14:50:38) [GET]
+  Parameters: {"user"=>"tjh"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'tjh') LIMIT 1[0m
+  [4;35;1mPortfolio Load (0.3ms)[0m   [0mSELECT * FROM "portfolios" WHERE (user_id= 2) [0m
+  [4;36;1mStock Load (0.2ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) LIMIT 1[0m
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering portfolios/list
+Completed in 110ms (View: 3, DB: 1) | 200 OK [http://localhost/portfolio/list.html?user=tjh]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePortfolios (20100708184406)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "portfolios"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100708184406'[0m
+Migrating to CreateUserSessions (20100702171409)
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "user_sessions"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100702171409'[0m
+Migrating to CreateUsers (20100702163052)
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100702163052'[0m
+Migrating to CreateStocks (20100702162653)
+  [4;35;1mSQL (0.8ms)[0m   [0mDROP TABLE "stocks"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100702162653'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStocks (20100702162653)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "stocks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "exchange" varchar(255), "company" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100702162653')[0m
+Migrating to CreateUsers (20100702163052)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100702163052')[0m
+Migrating to CreateUserSessions (20100702171409)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "user_sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100702171409')[0m
+Migrating to CreatePortfolios (20100708184406)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "portfolios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "stock_id" integer, "quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100708184406')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("portfolios")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("stocks")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("user_sessions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePortfolios (20100708184406)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mDROP TABLE "portfolios"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100708184406'[0m
+Migrating to CreateUserSessions (20100702171409)
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "user_sessions"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100702171409'[0m
+Migrating to CreateUsers (20100702163052)
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100702163052'[0m
+Migrating to CreateStocks (20100702162653)
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "stocks"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100702162653'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStocks (20100702162653)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "stocks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "exchange" varchar(255), "company" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100702162653')[0m
+Migrating to CreateUsers (20100702163052)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100702163052')[0m
+Migrating to CreateUserSessions (20100702171409)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "user_sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100702171409')[0m
+Migrating to CreatePortfolios (20100708184406)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "portfolios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "stock_id" integer, "quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100708184406')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("portfolios")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("stocks")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("user_sessions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing StocksController#welcome (for 127.0.0.1 at 2010-07-12 15:14:46) [GET]
+Rendering template within layouts/application
+Rendering stocks/welcome
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-12 15:14:49) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 73ms (View: 64, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-12 15:14:54) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-12 15:14:57) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 18ms (View: 9, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-07-12 15:15:05) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"hOLYaZarcJ+aBLdAtbpGrhztrwURpt6PtfWdOgguPRk=", "user"=>{"password_confirmation"=>"abc", "username"=>"tim", "password"=>"abc", "email"=>"tjhickey@brandeis.edu"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'tjhickey@brandeis.edu') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'tim') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '5a785e8714c9987632929cf5d3a07d5f474a1d15b13b7236471c22894ab5d632beb8dd5f9d834579520f1b17f4a3297a871df6b5239a56dd193398f10d7688f2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (Unknown key(s): password_confirmation, username, password, email) on line #15 of app/views/layouts/application.html.erb:
+12: 
+13: 	<div id="user_nav">
+14: 		<div class="box">  
+15: 		<% if current_user %>
+16: 		  <%= link_to "Edit Profile", edit_user_path(:current) %> ||
+17: 		  <%= link_to "Logout", logout_path %>
+18: 		<% else %>
+
+    app/controllers/application_controller.rb:30:in `current_user'
+    (eval):2:in `send'
+    (eval):2:in `current_user'
+    app/views/layouts/application.html.erb:15
+    app/controllers/users_controller.rb:52:in `create'
+    app/controllers/users_controller.rb:46:in `create'
+
+Rendered rescues/_trace (130.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-07-12 15:16:18) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"hOLYaZarcJ+aBLdAtbpGrhztrwURpt6PtfWdOgguPRk=", "user"=>{"password_confirmation"=>"abc", "username"=>"tim", "password"=>"abc", "email"=>"tjhickey@brandeis.edu"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'tjhickey@brandeis.edu') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'tim') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'eb6bff205dde0ad3876a0d6bd47a009f9f8b42a4aabbca03bf21a0ca692218ee6b2d0547a46c335895c78b00185ff19daff5eefb2598907e96a063eec954f3ac') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 35ms (View: 11, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-07-12 15:16:28) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"hOLYaZarcJ+aBLdAtbpGrhztrwURpt6PtfWdOgguPRk=", "user"=>{"password_confirmation"=>"abcd", "username"=>"tim", "password"=>"abcd", "email"=>"tjhickey@brandeis.edu"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'tjhickey@brandeis.edu') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'tim') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'cc326ffbc6ac56cf47f796f12d9901299d0cdcaade4e0b704550a34b0855f6e6dfa6082a250be0c1f3b7396665a3321a60165799c100d41abbc3b4c3c28568d4') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("created_at", "crypted_password", "updated_at", "username", "password_salt", "persistence_token", "email") VALUES('2010-07-12 19:16:28', '79da1cbe7c8616c48d97a96b49c277a98febe75fb92b260f9377217ceef883259a8cc138ebe493a92901aebab032cb83e7ac0f25e824a44004f37dd95c423d06', '2010-07-12 19:16:28', 'tim', 'LVGBE4tBzYQgC5jqCVYp', 'cc326ffbc6ac56cf47f796f12d9901299d0cdcaade4e0b704550a34b0855f6e6dfa6082a250be0c1f3b7396665a3321a60165799c100d41abbc3b4c3c28568d4', 'tjhickey@brandeis.edu')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 65ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-12 15:16:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cc326ffbc6ac56cf47f796f12d9901299d0cdcaade4e0b704550a34b0855f6e6dfa6082a250be0c1f3b7396665a3321a60165799c100d41abbc3b4c3c28568d4') LIMIT 1[0m
+Completed in 27ms (View: 17, DB: 1) | 200 OK [http://localhost/users/1]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStocks (20100702162653)
+Migrating to CreateUsers (20100702163052)
+Migrating to CreateUserSessions (20100702171409)
+Migrating to CreatePortfolios (20100708184406)
+Migrating to CreatePositions (20100712192137)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "positions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100712192137')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("portfolios")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("positions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("stocks")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("user_sessions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePositions (20100712192137)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mDROP TABLE "positions"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100712192137'[0m
+Migrating to CreatePortfolios (20100708184406)
+  [4;35;1mSQL (0.9ms)[0m   [0mDROP TABLE "portfolios"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100708184406'[0m
+Migrating to CreateUserSessions (20100702171409)
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "user_sessions"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100702171409'[0m
+Migrating to CreateUsers (20100702163052)
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100702163052'[0m
+Migrating to CreateStocks (20100702162653)
+  [4;35;1mSQL (0.5ms)[0m   [0mDROP TABLE "stocks"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100702162653'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStocks (20100702162653)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TABLE "stocks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "exchange" varchar(255), "company" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100702162653')[0m
+Migrating to CreateUsers (20100702163052)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "lattitude" integer, "longitude" integer, "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100702163052')[0m
+Migrating to CreateUserSessions (20100702171409)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "user_sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100702171409')[0m
+Migrating to CreatePortfolios (20100708184406)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "portfolios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "stock_id" integer, "quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100708184406')[0m
+Migrating to CreatePositions (20100712192137)
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TABLE "positions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100712192137')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("portfolios")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("positions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("stocks")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("user_sessions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-12 15:32:34) [GET]
+
+ActionController::RoutingError (No route matches "/users" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-12 15:32:39) [GET]
+
+ActionController::RoutingError (No route matches "/user" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStocks (20100702162653)
+Migrating to CreateUsers (20100702163052)
+Migrating to CreateUserSessions (20100702171409)
+Migrating to CreatePortfolios (20100708184406)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("portfolios")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("positions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("stocks")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("user_sessions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-12 15:34:05) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cc326ffbc6ac56cf47f796f12d9901299d0cdcaade4e0b704550a34b0855f6e6dfa6082a250be0c1f3b7396665a3321a60165799c100d41abbc3b4c3c28568d4') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 86ms (View: 77, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-12 15:34:07) [GET]
+Rendering template within layouts/application
+Rendering users/new
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cc326ffbc6ac56cf47f796f12d9901299d0cdcaade4e0b704550a34b0855f6e6dfa6082a250be0c1f3b7396665a3321a60165799c100d41abbc3b4c3c28568d4') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 23ms (View: 11, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-07-12 15:34:25) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"hOLYaZarcJ+aBLdAtbpGrhztrwURpt6PtfWdOgguPRk=", "user"=>{"password_confirmation"=>"abcd", "username"=>"tim", "password"=>"abcd", "email"=>"tjhickey@brandeis.edu"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'tjhickey@brandeis.edu') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'tim') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cc326ffbc6ac56cf47f796f12d9901299d0cdcaade4e0b704550a34b0855f6e6dfa6082a250be0c1f3b7396665a3321a60165799c100d41abbc3b4c3c28568d4') LIMIT 1[0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO "users" ("lattitude", "created_at", "crypted_password", "updated_at", "username", "password_salt", "persistence_token", "longitude", "email") VALUES(NULL, '2010-07-12 19:34:25', '2c86f9e78ef956e9e543ac8f453cafb453c0b0c2183c1345d3238af75027906f67c8fdac99f2db5622bd62b8752fb5545c4d641c23a11e619d1f3318a4d1e1e7', '2010-07-12 19:34:25', 'tim', 'IqgWDWSjhMCltI-hmzbD', '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00', NULL, 'tjhickey@brandeis.edu')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 39ms (DB: 3) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-12 15:34:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 23ms (View: 12, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#set_location (for 127.0.0.1 at 2010-07-12 15:34:36) [GET]
+  Parameters: {"lon"=>"120000000", "lat"=>"41000000", "u"=>"tim"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-07-12 19:34:36', "longitude" = 120000000, "lattitude" = 41000000 WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/set_location
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+Completed in 105ms (View: 10, DB: 1) | 200 OK [http://localhost/users/set_location/41000000/120000000?u=tim]
+
+
+Processing PortfoliosController#list to html (for 127.0.0.1 at 2010-07-12 15:38:41) [GET]
+  Parameters: {"u"=>"tim"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.1ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE (user_id= 1) [0m
+Rendering template within layouts/application
+Rendering portfolios/list
+Completed in 21ms (View: 1, DB: 1) | 200 OK [http://localhost/portfolio/list.html?u=tim]
+
+
+Processing StocksController#index (for 127.0.0.1 at 2010-07-12 15:38:52) [GET]
+  [4;35;1mStock Load (0.4ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/stocks]
+
+
+Processing StocksController#new (for 127.0.0.1 at 2010-07-12 15:38:53) [GET]
+Rendering template within layouts/application
+Rendering stocks/new
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 103ms (View: 96, DB: 0) | 200 OK [http://localhost/stocks/new]
+
+
+Processing StocksController#create (for 127.0.0.1 at 2010-07-12 15:39:00) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"hOLYaZarcJ+aBLdAtbpGrhztrwURpt6PtfWdOgguPRk=", "stock"=>{"company"=>"BP", "exchange"=>"NYSE"}}
+  [4;36;1mStock Create (0.3ms)[0m   [0;1mINSERT INTO "stocks" ("company", "created_at", "updated_at", "exchange") VALUES('BP', '2010-07-12 19:39:00', '2010-07-12 19:39:00', 'NYSE')[0m
+Redirected to http://localhost:3000/stocks/1
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/stocks]
+
+
+Processing StocksController#show (for 127.0.0.1 at 2010-07-12 15:39:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 25ms (View: 19, DB: 1) | 200 OK [http://localhost/stocks/1]
+
+
+Processing StocksController#index (for 127.0.0.1 at 2010-07-12 15:39:04) [GET]
+  [4;35;1mStock Load (0.5ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 99ms (View: 93, DB: 1) | 200 OK [http://localhost/stocks]
+
+
+Processing StocksController#new (for 127.0.0.1 at 2010-07-12 15:39:05) [GET]
+Rendering template within layouts/application
+Rendering stocks/new
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 25ms (View: 19, DB: 0) | 200 OK [http://localhost/stocks/new]
+
+
+Processing StocksController#create (for 127.0.0.1 at 2010-07-12 15:39:13) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"hOLYaZarcJ+aBLdAtbpGrhztrwURpt6PtfWdOgguPRk=", "stock"=>{"company"=>"GOOG", "exchange"=>"NASD"}}
+  [4;36;1mStock Create (0.3ms)[0m   [0;1mINSERT INTO "stocks" ("company", "created_at", "updated_at", "exchange") VALUES('GOOG', '2010-07-12 19:39:13', '2010-07-12 19:39:13', 'NASD')[0m
+Redirected to http://localhost:3000/stocks/2
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/stocks]
+
+
+Processing StocksController#show (for 127.0.0.1 at 2010-07-12 15:39:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 95ms (View: 89, DB: 1) | 200 OK [http://localhost/stocks/2]
+
+
+Processing StocksController#index (for 127.0.0.1 at 2010-07-12 15:39:14) [GET]
+  [4;35;1mStock Load (0.5ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 27ms (View: 21, DB: 1) | 200 OK [http://localhost/stocks]
+
+
+Processing StocksController#new (for 127.0.0.1 at 2010-07-12 15:39:15) [GET]
+Rendering template within layouts/application
+Rendering stocks/new
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://localhost/stocks/new]
+
+
+Processing StocksController#create (for 127.0.0.1 at 2010-07-12 15:39:24) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"hOLYaZarcJ+aBLdAtbpGrhztrwURpt6PtfWdOgguPRk=", "stock"=>{"company"=>"USD", "exchange"=>"CURRENCY"}}
+  [4;36;1mStock Create (0.4ms)[0m   [0;1mINSERT INTO "stocks" ("company", "created_at", "updated_at", "exchange") VALUES('USD', '2010-07-12 19:39:24', '2010-07-12 19:39:24', 'CURRENCY')[0m
+Redirected to http://localhost:3000/stocks/3
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/stocks]
+
+
+Processing StocksController#show (for 127.0.0.1 at 2010-07-12 15:39:24) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 23ms (View: 16, DB: 1) | 200 OK [http://localhost/stocks/3]
+
+
+Processing StocksController#index (for 127.0.0.1 at 2010-07-12 15:39:25) [GET]
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 27ms (View: 21, DB: 1) | 200 OK [http://localhost/stocks]
+
+
+Processing StocksController#new (for 127.0.0.1 at 2010-07-12 15:39:26) [GET]
+Rendering template within layouts/application
+Rendering stocks/new
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 92ms (View: 86, DB: 0) | 200 OK [http://localhost/stocks/new]
+
+
+Processing StocksController#create (for 127.0.0.1 at 2010-07-12 15:39:33) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"hOLYaZarcJ+aBLdAtbpGrhztrwURpt6PtfWdOgguPRk=", "stock"=>{"company"=>"TWD", "exchange"=>"CURRENCY"}}
+  [4;36;1mStock Create (0.3ms)[0m   [0;1mINSERT INTO "stocks" ("company", "created_at", "updated_at", "exchange") VALUES('TWD', '2010-07-12 19:39:33', '2010-07-12 19:39:33', 'CURRENCY')[0m
+Redirected to http://localhost:3000/stocks/4
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/stocks]
+
+
+Processing StocksController#show (for 127.0.0.1 at 2010-07-12 15:39:33) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 23ms (View: 16, DB: 1) | 200 OK [http://localhost/stocks/4]
+
+
+Processing StocksController#index (for 127.0.0.1 at 2010-07-12 15:39:35) [GET]
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 30ms (View: 23, DB: 1) | 200 OK [http://localhost/stocks]
+
+
+Processing PortfoliosController#buy (for 127.0.0.1 at 2010-07-12 15:39:57) [GET]
+  Parameters: {"qty"=>"100", "symbol"=>"GOOG", "exchange"=>"NASD", "u"=>"tim"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;35;1mStock Load (0.3ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."exchange" = 'NASD' AND "stocks"."company" = 'GOOG') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.1ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE ("portfolios"."user_id" = 1 AND "portfolios"."stock_id" = 2) LIMIT 1[0m
+  [4;35;1mPortfolio Create (0.3ms)[0m   [0mINSERT INTO "portfolios" ("created_at", "quantity", "updated_at", "user_id", "stock_id") VALUES('2010-07-12 19:39:57', 0, '2010-07-12 19:39:57', 1, 2)[0m
+  [4;36;1mPortfolio Update (0.3ms)[0m   [0;1mUPDATE "portfolios" SET "updated_at" = '2010-07-12 19:39:57', "quantity" = 100 WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering portfolios/buy
+Completed in 38ms (View: 2, DB: 2) | 200 OK [http://localhost/portfolio/buy/NASD/GOOG/100?u=tim]
+
+
+Processing PortfoliosController#buy (for 127.0.0.1 at 2010-07-12 15:40:04) [GET]
+  Parameters: {"qty"=>"10", "symbol"=>"GOOG", "exchange"=>"NASD", "u"=>"tim"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."exchange" = 'NASD' AND "stocks"."company" = 'GOOG') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.3ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE ("portfolios"."user_id" = 1 AND "portfolios"."stock_id" = 2) LIMIT 1[0m
+  [4;35;1mPortfolio Update (0.3ms)[0m   [0mUPDATE "portfolios" SET "updated_at" = '2010-07-12 19:40:04', "quantity" = 110 WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering portfolios/buy
+Completed in 30ms (View: 2, DB: 1) | 200 OK [http://localhost/portfolio/buy/NASD/GOOG/10?u=tim]
+
+
+Processing PortfoliosController#buy (for 127.0.0.1 at 2010-07-12 15:40:09) [GET]
+  Parameters: {"qty"=>"10", "symbol"=>"GOOG", "exchange"=>"NASD", "u"=>"tim"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mStock Load (0.4ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."exchange" = 'NASD' AND "stocks"."company" = 'GOOG') LIMIT 1[0m
+  [4;35;1mPortfolio Load (0.5ms)[0m   [0mSELECT * FROM "portfolios" WHERE ("portfolios"."user_id" = 1 AND "portfolios"."stock_id" = 2) LIMIT 1[0m
+  [4;36;1mPortfolio Update (0.4ms)[0m   [0;1mUPDATE "portfolios" SET "updated_at" = '2010-07-12 19:40:09', "quantity" = 120 WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering portfolios/buy
+Completed in 46ms (View: 2, DB: 2) | 200 OK [http://localhost/portfolio/buy/NASD/GOOG/10?u=tim]
+
+
+Processing PortfoliosController#sell (for 127.0.0.1 at 2010-07-12 15:40:18) [GET]
+  Parameters: {"qty"=>"15", "symbol"=>"GOOG", "exchange"=>"NASD", "u"=>"tim"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."exchange" = 'NASD' AND "stocks"."company" = 'GOOG') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.2ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE ("portfolios"."user_id" = 1 AND "portfolios"."stock_id" = 2) LIMIT 1[0m
+  [4;35;1mPortfolio Update (0.3ms)[0m   [0mUPDATE "portfolios" SET "updated_at" = '2010-07-12 19:40:18', "quantity" = 105 WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering portfolios/sell
+Completed in 31ms (View: 2, DB: 1) | 200 OK [http://localhost/portfolio/sell/NASD/GOOG/15?u=tim]
+
+
+Processing PortfoliosController#list to html (for 127.0.0.1 at 2010-07-12 15:40:34) [GET]
+  Parameters: {"u"=>"tim"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'tim') LIMIT 1[0m
+  [4;36;1mPortfolio Load (0.2ms)[0m   [0;1mSELECT * FROM "portfolios" WHERE (user_id= 1) [0m
+  [4;35;1mStock Load (0.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering portfolios/list
+Completed in 27ms (View: 2, DB: 1) | 200 OK [http://localhost/portfolio/list.html?u=tim]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-12 15:40:49) [GET]
+
+ActionController::RoutingError (No route matches "/portfolio/user/show/1" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-12 15:40:55) [GET]
+
+ActionController::RoutingError (No route matches "/portfolio/users/show/1" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-12 15:40:59) [GET]
+
+ActionController::RoutingError (No route matches "/portfolio/users" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-12 15:41:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 92ms (View: 7, DB: 1) | 200 OK [http://localhost/users/show/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-12 15:41:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 22ms (View: 11, DB: 1) | 200 OK [http://localhost/users/show/1]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-12 15:41:53) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 20ms (View: 9, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2010-07-12 15:42:47) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=index):
+  app/controllers/users_controller.rb:17:in `show'
+
+Rendered rescues/_trace (109.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index to xml (for 127.0.0.1 at 2010-07-12 15:42:54) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 41ms (View: 28, DB: 0) | 200 OK [http://localhost/users.xml]
+
+
+Processing UsersController#index to json (for 127.0.0.1 at 2010-07-12 15:43:37) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 13ms (View: 3, DB: 0) | 200 OK [http://localhost/users.json]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-12 15:43:56) [GET]
+Rendering template within layouts/application
+Rendering users/new
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 19ms (View: 10, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-07-12 15:44:10) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"hOLYaZarcJ+aBLdAtbpGrhztrwURpt6PtfWdOgguPRk=", "user"=>{"password_confirmation"=>"abcde", "username"=>"tjh", "password"=>"abcde", "email"=>"thickey724@gmail.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'thickey724@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'tjh') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '178f51464662d359e51d45f94f88535fc837f3a6157cf23c706da90fac6264d4a0587e991a84cd4849a02d831e4befd3463a0c1b750a600ad3e768763f28514d') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("lattitude", "created_at", "crypted_password", "updated_at", "username", "password_salt", "persistence_token", "longitude", "email") VALUES(NULL, '2010-07-12 19:44:10', '72d379188c76fde3cde015770d55ec1bde01aafad39d8903449eeec11984546918b7f0ed8668bb18939c42c1a852fa442d1e2c13c454ba5426a3f7ef93e7d2b7', '2010-07-12 19:44:10', 'tjh', 'gzOMpQw-tZee04HsM3xe', '178f51464662d359e51d45f94f88535fc837f3a6157cf23c706da90fac6264d4a0587e991a84cd4849a02d831e4befd3463a0c1b750a600ad3e768763f28514d', NULL, 'thickey724@gmail.com')[0m
+Redirected to http://localhost:3000/users/2
+Completed in 25ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-12 15:44:10) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62b970003fc77d23f8931b7890bb4dcb4d3116a6d973c4ff164b575cb69bfb9f376999eb7c7ef323a1b705bd4f4a64fe0b5d99d9df61c638a2a32f923827da00') LIMIT 1[0m
+Completed in 20ms (View: 7, DB: 1) | 200 OK [http://localhost/users/2]
+
+
+Processing UsersController#index to xml (for 127.0.0.1 at 2010-07-12 15:44:15) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/users.xml]
+
+
+Processing UsersController#index to json (for 127.0.0.1 at 2010-07-12 15:44:40) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 14ms (View: 3, DB: 0) | 200 OK [http://localhost/users.json]

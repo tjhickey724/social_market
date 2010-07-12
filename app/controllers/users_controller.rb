@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
+      format.json { render :json => @users }
     end
   end
 
@@ -82,5 +83,12 @@ class UsersController < ApplicationController
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def set_location
+    @user = User.find_by_username(params[:u])
+    @user.lattitude = params[:lat]
+    @user.longitude = params[:lon]
+    @user.save!
   end
 end

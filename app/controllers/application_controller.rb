@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
-    if (params[:user])
-      @current_user = User.find_by_username(params[:user])
+    if (params[:u])
+      @current_user = User.find_by_username(params[:u])
     end
     return @current_user
   end

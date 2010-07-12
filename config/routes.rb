@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :positions
+
   map.resources :portfolios
 
   map.resources :purchases
@@ -8,10 +10,12 @@ ActionController::Routing::Routes.draw do |map|
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
  
   map.connect 'stocks/welcome', :controller => 'stocks', :action => 'welcome'
-  map.connect 'portfolio/list', :controller => 'portfolios', :action => 'list'
+  map.connect 'portfolio/list.:format', :controller => 'portfolios', :action => 'list'
 
   map.connect 'portfolio/buy/:exchange/:symbol/:qty', :controller => 'portfolios', :action => 'buy'
   map.connect 'portfolio/sell/:exchange/:symbol/:qty', :controller => 'portfolios', :action => 'sell'
+  
+  map.connect 'users/set_location/:lat/:lon', :controller => 'users', :action => 'set_location'
  
   map.resources :user_sessions
 
