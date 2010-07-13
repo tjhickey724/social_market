@@ -1,0 +1,29 @@
+<table border="1"> 
+<%- @users.each do |user| -%>
+<tr>  
+<td>
+
+  <%=h user.username %>
+</td>
+
+<td>
+
+  <%=h user.email %>
+</td>
+
+
+<td>
+ <%=h user.lattitude %>
+ </td>
+ 
+ <td>
+<%=h user.longitude %>
+ </td>
+
+<td>
+<%= link_to 'Edit', edit_user_path(user) %> |
+<%= link_to 'Back', users_path %>
+</td>
+</tr>
+ <%- end -%>
+  </table>

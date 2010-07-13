@@ -90,5 +90,19 @@ class UsersController < ApplicationController
     @user.lattitude = params[:lat]
     @user.longitude = params[:lon]
     @user.save!
+
+  end
+  
+  def get_locations
+    @users = User.find(:all)
+    @userlocs  = @users.collect do |u|
+      [u.lattitude, u.longitude, u.username]
+     # {:lattitude => u.lattitude, :longitude => u.longitude, :username => u.username}
+    end
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @userlocs}
+      format.json {render :json => @userlocs}
+    end
   end
 end

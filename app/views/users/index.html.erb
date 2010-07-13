@@ -1,10 +1,17 @@
 <h1>Listing users</h1>
 
-<table>
+<table border="1">
   <tr>
     <th>Username</th>
     <th>Email</th>
     <th>Password</th>
+	<th> lattitude</th>
+	<th> longitude</th>
+	<th> last update </th>
+	<th></th>
+	<th></th>
+	<th></th>
+	
   </tr>
 
 <% @users.each do |user| %>
@@ -12,6 +19,9 @@
     <td><%=h user.username %></td>
     <td><%=h user.email %></td>
     <td><%=h user.password %></td>
+	<td><%=h user.lattitude %></td>
+	<td><%=h user.longitude %></td>
+	<td><%=h user.updated_at %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
