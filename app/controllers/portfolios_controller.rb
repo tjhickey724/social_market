@@ -8,23 +8,48 @@ class PortfoliosController < ApplicationController
     @dollars = Stock.find_by_exchange_and_company("CURRENCY","$USD");
     @cash = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@dollars.id)
     puts @x.inspect
+    if (params[:clean] == "yes")
+      @x = @x.reject do |a|
+        if (a.quantity ==0)
+          a.destroy
+          true
+        else
+          false
+        end
+      end
+    end
     @y1 = @x.collect do |a|
       sym = stock_id_to_symbol(a.stock_id)
       bid = get_bid_price sym
-      [sym, a.quantity, bid, (a.quantity * bid.to_f + 0.5).to_i]
+      ask = get_ask_price sym
+      [sym, a.quantity, ask, bid, (a.quantity * bid.to_f + 0.5).to_i]
     end
-    @y = @y1.reject do |a,b,c,d|
+
+    @y = @y1.reject do |a,b,c,d,e|
       a=="$USD"
     end
+
     @currentvalue = 0
-    @y.each do |a,b,c,d|
-         @currentvalue += d
+    @y.each do |a,b,c,d,e|
+         @currentvalue += e
     end
     @totalvalue = @currentvalue + @cash.quantity
+    @the_user.current_value = @totalvalue
+    @the_user.save
     respond_to do |format|
       format.html
       format.json {render :json => @y1}
     end
+  end
+  
+  def add
+    @the_user = current_user
+    @sym = params[:symbol]
+    @stock = Stock.find_by_company(@sym)
+    @portf = Portfolio.new(:user_id => @the_user.id, :stock_id => @stock.id, :quantity => 0)
+    @portf.save!
+    flash[:notice] = "You've added #{@sym} to your portfolio and can now buy or sell that stock"
+    redirect_to "/portfolio/list"
   end
  
  
@@ -34,7 +59,7 @@ class PortfoliosController < ApplicationController
     @exch = params[:exchange]
     @sym = params[:symbol]
     @quote = get_stock_quote(  @sym)
-    @ask = ( @quote.split(",")[1]).to_f
+    @ask = ( @quote[1]).to_f
     @stock = get_stock(@exch, @sym) 
     @qty = params[:qty]
     @stockholding = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@stock.id)
@@ -53,7 +78,7 @@ class PortfoliosController < ApplicationController
     @exch = params[:exchange]
     @sym = params[:symbol]
     @quote = get_stock_quote(  @sym)
-    @bid = ( @quote.split(",")[2]).to_f
+    @bid = ( @quote[2]).to_f
     @stock = get_stock(@exch, @sym) 
     @qty = params[:qty]
     @stockholding = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@stock.id)
@@ -189,7 +214,16 @@ class PortfoliosController < ApplicationController
   end
   
   def get_stock_quote sym
-    x = StockQuote.get('http://finance.yahoo.com/d/quotes.csv?s='+sym+'&f=sab')
+    y = Stock.find_by_company(sym)
+    if ((y.bid != nil) && (y.updated_at + 100.hour > Time.now))
+      [sym, y.ask, y.bid]
+    else
+      x = StockQuote.get('http://finance.yahoo.com/d/quotes.csv?s='+sym+'&f=sab').split(",")
+      y.ask = x[1].to_f
+      y.bid = x[2].to_f
+      y.save
+      [sym, y.ask, y.bid]
+    end
   end
   
    
@@ -197,7 +231,8 @@ class PortfoliosController < ApplicationController
     if (sym == '$USD')
       1
     else
-      get_stock_quote(sym).split(",")[2].to_f
+      x =  get_stock_quote(sym)
+      x[2].to_f
     end
 
   end
@@ -206,7 +241,8 @@ class PortfoliosController < ApplicationController
     if (sym == '$USD')
       1
     else
-      get_stock_quote(sym).spit(",")[1].to_f
+      x=get_stock_quote(sym)
+      x[1].to_f
     end
   end
   

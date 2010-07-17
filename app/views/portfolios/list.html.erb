@@ -1,4 +1,4 @@
-<h1>Portfolio for <%=h @the_user.username %></h1>
+<h2>Member: <%=h @the_user.username %></h2>
 
 <h2>Summary</h2>
 <table border="1">
@@ -17,16 +17,26 @@
  <td>Buy</td>	
  <td> Sym</td>
  <td> Qty</td>
+ <td> Ask </td>
  <td> Bid</td>
  <td> Current Value </td>
  <td> Sell </td>
  </tr> 
 <%-  @y.each do |s| -%>
    <tr> 
-     <td style="background:rgb(0,255,0)"> <a href="/portfolio/buy/NASD/<%= s[0] %>/100"> BUY 100</a></td>
-     <td><%= s[0] %></td><td><%= s[1] %></td><td><%= s[2] %></td><td style='text-align:right'>$<%= s[3] %></td>
-     <td style="background:rgb(255,0,0)"> <a href="/portfolio/sell/NASD/<%= s[0] %>/100"> SELL 100</a></td>
+     <td style="background:rgb(0,255,0)"> 
+	   <form method="post" action="/portfolio/buy/NASD/<%= s[0] %>/100"> <input type="submit" value="BUY 100" /> </form></td>
+     <td><%= s[0] %></td><td><%= s[1] %></td><td><%= s[2] %></td><td><%= s[3] %><td style='text-align:right'>$<%= s[4] %></td>
+     <td style="background:rgb(255,0,0)"> 
+	    <form method="post" action="/portfolio/sell/NASD/<%= s[0] %>/100"> <input type="submit" value="SELL 100" /> </form></td>
    </tr>
 <% end %>
 </table>
 
+<h2>Add Stock to Portfolio</h2>
+<form method="post" action="/portfolio/add/stock">
+	Stock Symbol: <input type="text" name="symbol" />
+	<br/>
+	<input type="submit"/>
+</form>
+	

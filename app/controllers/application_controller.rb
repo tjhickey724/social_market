@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   #before_filter :authorize, :except =>:user_sesssions
   helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  #protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   helper_method :current_user, :current_username
   
