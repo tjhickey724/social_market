@@ -15,7 +15,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'portfolio/buy/:exchange/:symbol/:qty', :controller => 'portfolios', :action => 'buy'
   map.connect 'portfolio/sell/:exchange/:symbol/:qty', :controller => 'portfolios', :action => 'sell'
-  map.connect 'portfolio/add/stock', :controller => 'portfolios', :action => 'add'
+  map.connect 'portfolio/add', :controller => 'portfolios', :action => 'add'
+  map.connect 'portfolio/remove/:symbol', :controller => 'portfolios', :action => 'remove'
   
   map.connect 'set_location/:lat/:lon', :controller => 'users', :action => 'set_location'
   map.connect 'get_locations/:lat/:lon/all.:format', :controller => 'users', :action => 'get_locations'

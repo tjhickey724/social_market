@@ -51,6 +51,19 @@ class PortfoliosController < ApplicationController
     flash[:notice] = "You've added #{@sym} to your portfolio and can now buy or sell that stock"
     redirect_to "/portfolio/list"
   end
+  
+  def remove
+    @the_user = current_user
+    @sym = params[:symbol]
+    @stock = Stock.find_by_company(@sym)
+    @portf = Portfolio.find_by_user_id_and_stock_id(@the_user.id, @stock.id)
+    @bid = get_bid_price @sym
+    @qty = @portf.quantity
+    sell_stock(@portf, @the_user.id,@stock.id,@qty, @bid)
+    @portf.destroy
+    flash[:notice] = "You sold all #{@qty} shares of #{@sym} at $#{@bid}/share"
+    redirect_to "/portfolio/list"
+end
  
  
   def buy

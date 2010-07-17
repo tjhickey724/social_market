@@ -29,12 +29,16 @@
      <td><%= s[0] %></td><td><%= s[1] %></td><td><%= s[2] %></td><td><%= s[3] %><td style='text-align:right'>$<%= s[4] %></td>
      <td style="background:rgb(255,0,0)"> 
 	    <form method="post" action="/portfolio/sell/NASD/<%= s[0] %>/100"> <input type="submit" value="SELL 100" /> </form></td>
+<td style="background:rgb(255,0,0)"> 
+	    <form method="post" action="/portfolio/remove/<%= s[0] %>"> <input type="submit" value="SELL ALL" /> </form></td>
+   <
+
    </tr>
 <% end %>
 </table>
 
 <h2>Add Stock to Portfolio</h2>
-<form method="post" action="/portfolio/add/stock">
+<form method="post" action="/portfolio/add">
 	Stock Symbol: <input type="text" name="symbol" />
 	<br/>
 	<input type="submit"/>
