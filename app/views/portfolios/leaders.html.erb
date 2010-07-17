@@ -1,0 +1,17 @@
+<table border="1" cellpadding="10"> 
+Your rank is <%=h @the_rank %> out of <%=h @membership %> members
+<%- @leaders.each do |a| %>
+<tr>
+	<td> 
+	 <a href="/portfolio/list/<%=h a.username %>"><%=h a.username %></a>
+	</td>  
+	<td>
+		 $<%= a.current_value %> as of <%=h a.updated_at.strftime "%m/%d/%Y" %>
+	</td> 
+	<td>
+		<%=h a.created_at.strftime "%m/%d/%Y" %>
+	</td>
+
+<%- end %>
+
+</table>

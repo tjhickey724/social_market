@@ -27,9 +27,8 @@ class UsersController < ApplicationController
   # GET /users/new.xml
   def new
     @user = User.new
-
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.xml  { render :xml => @user }
     end
   end
@@ -52,7 +51,7 @@ class UsersController < ApplicationController
         @user.current_value = 100000;
         Portfolio.new(:user_id => @user.id, :stock_id => 1, :quantity => 100000).save! ;
         @user.save!
-        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
+        format.html { redirect_to("/", :notice => 'You are now registered for the Social Market Game!') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

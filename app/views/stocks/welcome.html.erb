@@ -1,4 +1,18 @@
 <h1>Welcome!</h1>
+<%- if (@current_user) %>
+<h2>Start Playing</h2>
+<p> Once you register and log in, you can</p>
+<ul>
+	<li>
+		<a href="portfolio/list">View and manage your portfolio</a>
+	</li>
+	<li>
+		<a href="portfolio/leaders">View the top scoring members and see your rank</a>
+	</li>
+</ul>
+<%- else %>
+<h2>Login or Register now to start playing </h2>
+<%- end %>
 
 Your goal is to make as much <b>fantasy</b> money as you can by investing $100,000 in <b>fantasy</b> money in at most 10 stocks.
 This site tracks the value of your <b>fantasy</b> investment over time and ranks your performance with all other players.
@@ -10,19 +24,18 @@ This site tracks the value of your <b>fantasy</b> investment over time and ranks
 	</li>
 	
 	<li>
-		You may buy and sell stocks at the current actual stock value (courtesy of Yahoo Finance API) and your USD account
+		You may buy and sell stocks at the current actual stock value (courtesy of Yahoo Finance API) and your fantasy account
 		will be augmented or decreased appropriately.
     </li>
 		
 	<li>
-		One of the requirements of playing this game is that you let everyone see your choice of 10 stocks and as well as your
+		One of the requirements of playing this game is that you let everyone see your choice of 5 stocks and as well as your
 stock trading activity, and conversely you get to see everyone else's portfolio and trading history.
 	</li>
 	
 	<li>
-		If you choose to, you can upload your lattitude/longitude from a mobile phone. This will allow you to view your
-		radius of success, which is the radius of the largest circle around your current position in which you have the best
-		trading success among all located players of the game!
+		If you choose to, you can upload your lattitude/longitude from a mobile phone. This will allow you to compare
+		yourself to the members who are know to be near by.
 	</li>
 	
 </ul>
@@ -49,18 +62,3 @@ inclu
 	local rankings will also rise...
 </p>
 
-<h2>Start Playing</h2>
-<p> Once you register and log in, you can</p>
-<ul>
-	<li>
-		<a href="portfolio/list">View your portfolio</a>
-	</li>
-	<li>
-		or you can buy 17 shares of NYSE/GOOG stock by visiting
-		/portfolio/buy/NYSE/GOOG/17 similarly for selling stock
-	</li>
-	<li>
-		View the current value of your portfolio and your rank both globally and locally 
-		(THIS IS STILL UNDER CONSTRUCTION!)
-	</li>
-</ul>

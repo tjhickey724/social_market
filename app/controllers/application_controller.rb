@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
   private
   
   def current_user_session
+    if (params[:u] && params[:pw])
+     session = UserSession.create(:username => params[:u], :password => params[:pw], :remember_me => true); 
+     session.save
+      # @current_user = User.find_by_username(params[:u])
+    end
+
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
   end
@@ -26,9 +32,6 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
-    if (params[:u])
-      @current_user = User.find_by_username(params[:u])
-    end
     return @current_user
   end
   

@@ -84,18 +84,23 @@ div#container {
 }
 
 div#mainbody {
-	padding:0px 20px; 
-	margin:0px 60px;
+	padding:0px 40px; 
+	margin:0px 20px;
 	border-left: 15px double blue;
 }
 
 div#mainhead {
 	font-family:Futura,sans-serif;
-	font-size:50pt;
+	font-size:30pt;
 	background:rgb(0,0,100);
 	color:white;
 	text-align:center;
-	height:70pt;
-	padding:80px 0px 0px 0px;
+	height:50pt;
+	padding:40px 0px 0px 0px;
 	margin:0px;
+}
+
+div.natural {
+	padding:10px;
+	margin:10px;
 }

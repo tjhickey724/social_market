@@ -4,20 +4,15 @@ class PortfoliosController < ApplicationController
   
   def list
     @the_user = current_user
-    @x = Portfolio.find(:all, :conditions => ["user_id= ?", @the_user.id])
+    @member_name = params[:member]
+    @authorized = current_user && (!@member_name || current_user.username == @member_name)
+    @member_name ||= @the_user.username
+    @member = User.find_by_username(@member_name)
+    
+    @x = Portfolio.find(:all, :conditions => ["user_id= ?", @member.id])
     @dollars = Stock.find_by_exchange_and_company("CURRENCY","$USD");
-    @cash = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@dollars.id)
-    puts @x.inspect
-    if (params[:clean] == "yes")
-      @x = @x.reject do |a|
-        if (a.quantity ==0)
-          a.destroy
-          true
-        else
-          false
-        end
-      end
-    end
+    @cash = Portfolio.find_by_user_id_and_stock_id(@member.id,@dollars.id)
+ 
     @y1 = @x.collect do |a|
       sym = stock_id_to_symbol(a.stock_id)
       bid = get_bid_price sym
@@ -34,13 +29,37 @@ class PortfoliosController < ApplicationController
          @currentvalue += e
     end
     @totalvalue = @currentvalue + @cash.quantity
-    @the_user.current_value = @totalvalue
-    @the_user.save
+    @member.current_value = @totalvalue
+    @member.save
     respond_to do |format|
       format.html
-      format.json {render :json => @y1}
+      format.json {render :json => @y}
     end
   end
+  
+  def rank
+    @the_user = current_user
+    @the_rank = User.count(:conditions => ["current_value >= ?", @the_user.current_value])
+    @membership = User.count(:all)
+    respond_to do |format|
+      format.html
+      format.json {render :json => [ @the_rank, @membership]}
+    end
+  end
+  
+   def leaders
+    @the_user = current_user
+    @the_rank = User.count(:conditions => ["current_value >= ?", @the_user.current_value])
+    @leaders = User.find(:all, :limit => 10, :order => "current_value desc")
+    @membership = User.count(:all)
+    respond_to do |format|
+      format.html
+      format.json {render :json => [ @the_rank, @membership, @leaders]}
+    end
+  end
+  
+  
+  
   
   def add
     @the_user = current_user
