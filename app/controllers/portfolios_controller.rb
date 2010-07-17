@@ -1,40 +1,43 @@
+require 'HTTParty'
+
 class PortfoliosController < ApplicationController
   
   def list
     @the_user = current_user
     @x = Portfolio.find(:all, :conditions => ["user_id= ?", @the_user.id])
     @y = @x.collect do |a|
-      " #{stock_id_to_symbol(a.stock_id)} --> #{a.quantity} "
+      sym = stock_id_to_symbol(a.stock_id)
+      bid = get_bid_price sym
+      [sym, a.quantity, bid, (a.quantity * bid.to_f + 0.5).to_i]
+    end
+    @currentvalue = 0
+    @y.each do |a,b,c,d|
+         @currentvalue += d
     end
     respond_to do |format|
       format.html
       format.json {render :json => @y}
     end
   end
-  
-
+ 
  
   def buy
     @the_user = current_user
     @the_user_id = @the_user.id
     @exch = params[:exchange]
     @sym = params[:symbol]
+    @quote = get_stock_quote(  @sym)
+    @ask = ( @quote.split(",")[1]).to_f
     @stock = get_stock(@exch, @sym) 
     @qty = params[:qty]
     @stockholding = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@stock.id)
-    puts @stockholding
-    puts @the_user.id
-    puts @stock.id
-    if @stockholding==nil
-      @stockholding= Portfolio.new(:user_id => @the_user.id, :stock_id => @stock.id, :quantity => 0)
-      @stockholding.save!
-      puts "created stockholding?"
+    if (@stockholding==nil)
+      @stockholding = Portfolio.new(:user_id => @the_user.id, :stock_id => @stock.id, :quantity => 0)
+      @stockholding.save
     end
-
-    @stockholding.quantity += @qty.to_i
-    @stockholding.save!
-  
-    
+    buy_stock(@stockholding, @the_user.id, @stock.id,@qty, @ask)
+    flash[:notice] = "You bought #{@qty} shares of #{@sym} at $#{@ask}/share"
+    redirect_to "/portfolio/list"
   end
   
   def sell
@@ -42,14 +45,17 @@ class PortfoliosController < ApplicationController
     @the_user_id = @the_user.id
     @exch = params[:exchange]
     @sym = params[:symbol]
+    @quote = get_stock_quote(  @sym)
+    @bid = ( @quote.split(",")[2]).to_f
     @stock = get_stock(@exch, @sym) 
     @qty = params[:qty]
     @stockholding = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@stock.id)
-    @stockholding.quantity -= @qty.to_i
-    @stockholding.save!
-  
+    sell_stock(@stockholding, @the_user.id,@stock.id,@qty, @bid)
+    flash[:notice] = "You sold #{@qty} shares of #{@sym} at $#{@bid}/share"
+    redirect_to "/portfolio/list"
     
   end
+  
   
   
   # GET /portfolios
@@ -136,6 +142,37 @@ class PortfoliosController < ApplicationController
   
   private
   
+  
+  def sell_stock stockholding, user_id, stock_id, qty, bid
+    stockholding.quantity -= @qty.to_i
+    stockholding.save!
+    @dollars = Stock.find_by_exchange_and_company("CURRENCY","$USD");
+    @cash = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@dollars.id)
+    if (@cash==nil)
+      x = Portfolio.new(:user_id => @the_user.id, :stock_id => @cash.id,:quantity => 100000)
+    end
+    @cash.quantity += ((qty.to_i) * bid+0.5).to_i
+    @cash.save!
+  end
+  
+  def buy_stock stockholding, user_id, stock_id, qty, ask
+    stockholding.quantity += @qty.to_i
+    stockholding.save!
+    @dollars = Stock.find_by_exchange_and_company("CURRENCY","$USD");
+    @cash = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@dollars.id)
+    if (@cash==nil)
+      @cash = Portfolio.new(:user_id => @the_user.id, :stock_id => @dollars.id,:quantity => 100000)
+    end
+    puts "updating cash value"
+    puts @cash.quantity
+    puts (qty.to_i)*ask
+    @cash.quantity -= (((qty.to_i) * ask) + 0.5).to_i
+    puts @cash.quantity
+    
+    @cash.save!
+    
+  end
+  
   def stock_id_to_symbol s
     Stock.find_by_id(s).company
   end
@@ -143,5 +180,33 @@ class PortfoliosController < ApplicationController
   def get_stock exch, sym
     z = Stock.find_by_exchange_and_company(exch,sym)
   end
+  
+  def get_stock_quote sym
+    x = StockQuote.get('http://finance.yahoo.com/d/quotes.csv?s='+sym+'&f=sab')
+  end
+  
+   
+  def get_bid_price sym
+    if (sym == '$USD')
+      1
+    else
+      get_stock_quote(sym).split(",")[2].to_f
+    end
+
+  end
+  
+  def get_ask_price sym
+    if (sym == '$USD')
+      1
+    else
+      get_stock_quote(sym).spit(",")[1].to_f
+    end
+  end
+  
+  class StockQuote
+    include HTTParty
+  end
+  
+  
   
 end

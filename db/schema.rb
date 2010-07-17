@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20100712192137) do
     t.string   "email"
     t.integer  "lattitude"
     t.integer  "longitude"
+    t.integer  "current_value"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"

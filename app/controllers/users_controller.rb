@@ -43,10 +43,15 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
+    @user.current_value = 100000;
+    Portfolio.new(:user_id => @user.id, :stock_id => 1, :quantity => 100000).save! ;
 
     respond_to do |format|
       if @user.save
         flash[:notice] = "Registration successful."
+        @user.current_value = 100000;
+        Portfolio.new(:user_id => @user.id, :stock_id => 1, :quantity => 100000).save! ;
+        @user.save!
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
