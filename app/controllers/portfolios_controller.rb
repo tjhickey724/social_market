@@ -5,18 +5,25 @@ class PortfoliosController < ApplicationController
   def list
     @the_user = current_user
     @x = Portfolio.find(:all, :conditions => ["user_id= ?", @the_user.id])
-    @y = @x.collect do |a|
+    @dollars = Stock.find_by_exchange_and_company("CURRENCY","$USD");
+    @cash = Portfolio.find_by_user_id_and_stock_id(@the_user.id,@dollars.id)
+    puts @x.inspect
+    @y1 = @x.collect do |a|
       sym = stock_id_to_symbol(a.stock_id)
       bid = get_bid_price sym
       [sym, a.quantity, bid, (a.quantity * bid.to_f + 0.5).to_i]
+    end
+    @y = @y1.reject do |a,b,c,d|
+      a=="$USD"
     end
     @currentvalue = 0
     @y.each do |a,b,c,d|
          @currentvalue += d
     end
+    @totalvalue = @currentvalue + @cash.quantity
     respond_to do |format|
       format.html
-      format.json {render :json => @y}
+      format.json {render :json => @y1}
     end
   end
  

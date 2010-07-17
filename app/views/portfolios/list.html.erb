@@ -1,5 +1,17 @@
 <h1>Portfolio for <%=h @the_user.username %></h1>
 
+<h2>Summary</h2>
+<table border="1">
+<tr><td colspan="4">Current Value of Stocks</td>
+    <td style='text-align:right'>$<%= @currentvalue %></td><td></td></tr>
+<tr><td colspan="4">Current Cash</td>
+    <td style='text-align:right'>$<%= @cash.quantity %></td><td></td></tr>
+<tr><td colspan="4">Total Value  (Stocks + Cash)</td>
+    <td style='text-align:right'>$<%= @totalvalue %></td><td></td></tr>
+</table>
+
+<h2>Details</h2>
+<hr/>
 <table border="1">
 <tr>
  <td>Buy</td>	
@@ -16,6 +28,5 @@
      <td style="background:rgb(255,0,0)"> <a href="/portfolio/sell/NASD/<%= s[0] %>/100"> SELL 100</a></td>
    </tr>
 <% end %>
-<tr><td colspan="3">Current Value</td><td style='text-align:right'>$<%= @currentvalue %></td></tr>
 </table>
 
