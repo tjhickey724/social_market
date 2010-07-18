@@ -1,5 +1,10 @@
-<table border="1" cellpadding="10"> 
 Your rank is <%=h @the_rank %> out of <%=h @membership %> members
+<table border="1" cellpadding="10"> 
+<tr>
+	<td> member </td>
+	<td> current value</td>
+	<td> starting date</td>
+</tr>
 <%- @leaders.each do |a| %>
 <tr>
 	<td> 

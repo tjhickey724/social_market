@@ -1,31 +1,9 @@
 
-
-<%- if (@authorized) %>
-<div style="float:right; border: 10px double blue">
-<form method="post" action="/portfolio/add">
-	<input type="submit" value="add stock to portfolio"/>
-	<input type="text" name="symbol" value="GOOG" style="background:yellow"/>
-</form>
- </div>
-<%- end %>
-
-<div style="width:30%; border:10px double blue">
-<table border="0">
-<tr><th colspan="2"> <%=h @member_name %>'s Portfolio</td>
-<tr><td colspan="4">Current Value of Stocks</td>
-    <td style='text-align:right'>$<%= @currentvalue %></td><td></td></tr>
-<tr><td colspan="4">Current Cash</td>
-    <td style='text-align:right'>$<%= @cash.quantity %></td><td></td></tr>
-<tr><td colspan="4">Total Value  (Stocks + Cash)</td>
-    <td style='text-align:right'>$<%= @totalvalue %></td><td></td></tr>
-</table>
-
-</div>
-
-
 <div class="natural" style="clear:both; text-align:center">
-<h2>Details</h2>
+<h2>Portfolio for <%=@member_name %> </h2>
 <table border="1" style="margin-left:auto; margin-right:auto">
+<tr>
+	<td colspan="8" style="text-align:center;padding-bottom:20px">US Dollars $<%= @cash.quantity %> still available to purchase stock</td>
 <tr>
 	<%- if @authorized %>
  <td>Buy</td>	
@@ -36,7 +14,9 @@
  <td> Bid</td>
  <td> Current Value </td>
  <%- if (@authorized) %>
- <td> Sell </td>
+ <td colspan="2"> Sell </td>
+ <%- else %>
+ <td colspan="2"> </td>
  <%- end %>
  </tr> 
 <%-  @y.each do |s| -%>
@@ -56,5 +36,35 @@
 <% end %>
 </table>
 </div>
+
+
+<%- if (@authorized) %>
+<div style="text-align:center; float:right; border: 10px double blue">
+Add stocks to your portfolio
+<div>
+	<a href="/NASD3.html"> Select a stock </a>
+</div>
+or<br/>
+<form method="post" action="/portfolio/add">
+	enter a NASDAQ symbol name
+
+	<input type="text" name="symbol" value="GOOG" style="background:yellow"/>
+	and 	<input type="submit" value="buy it" />
+</form>
+ </div>
+<%- end %>
+
+<div style="width:30%; border:10px double blue">
+<table border="0">
+<tr><td colspan="4">Current Value of Stocks</td>
+    <td style='text-align:right'>$<%= @currentvalue %></td><td></td></tr>
+<tr><td colspan="4">Current Cash</td>
+    <td style='text-align:right'>$<%= @cash.quantity %></td><td></td></tr>
+<tr><td colspan="4">Total Value  (Stocks + Cash)</td>
+    <td style='text-align:right'>$<%= @totalvalue %></td><td></td></tr>
+</table>
+
+</div>
+
 
 	

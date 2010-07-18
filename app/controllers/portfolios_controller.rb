@@ -23,6 +23,10 @@ class PortfoliosController < ApplicationController
     @y = @y1.reject do |a,b,c,d,e|
       a=="$USD"
     end
+    
+    @y2 = @y1.collect do |a,b,c,d,e|
+      "#{a} -> #{e}"
+    end
 
     @currentvalue = 0
     @y.each do |a,b,c,d,e|
@@ -33,7 +37,7 @@ class PortfoliosController < ApplicationController
     @member.save
     respond_to do |format|
       format.html
-      format.json {render :json => @y}
+      format.json {render :json => @y1}
     end
   end
   
@@ -52,9 +56,12 @@ class PortfoliosController < ApplicationController
     @the_rank = User.count(:conditions => ["current_value >= ?", @the_user.current_value])
     @leaders = User.find(:all, :limit => 10, :order => "current_value desc")
     @membership = User.count(:all)
+    @leaders_data = @leaders.collect do |a|
+      [a.username, a.current_value, a.updated_at, a.created_at]
+    end
     respond_to do |format|
       format.html
-      format.json {render :json => [ @the_rank, @membership, @leaders]}
+      format.json {render :json => [ @the_rank, @membership, @leaders_data]}
     end
   end
   

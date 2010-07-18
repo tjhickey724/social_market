@@ -11,14 +11,14 @@ ActionController::Routing::Routes.draw do |map|
  
   map.connect 'stocks/welcome', :controller => 'stocks', :action => 'welcome'
   map.connect 'portfolio/list.:format', :controller => 'portfolios', :action => 'list'
-  map.connect 'portfolio/list/:member', :controller => 'portfolios', :action => 'list'
+  map.connect 'portfolio/list/:member.:format', :controller => 'portfolios', :action => 'list'
 
   map.connect 'portfolio/buy/:exchange/:symbol/:qty', :controller => 'portfolios', :action => 'buy'
   map.connect 'portfolio/sell/:exchange/:symbol/:qty', :controller => 'portfolios', :action => 'sell'
   map.connect 'portfolio/add', :controller => 'portfolios', :action => 'add'
   map.connect 'portfolio/remove/:symbol', :controller => 'portfolios', :action => 'remove'
   map.connect 'portfolio/rank.:format', :controller => 'portfolios', :action => 'rank'
-  map.connect 'portfolio/leaders', :controller => 'portfolios', :action => 'leaders'
+  map.connect 'portfolio/leaders.:format', :controller => 'portfolios', :action => 'leaders'
   
   map.connect 'set_location/:lat/:lon', :controller => 'users', :action => 'set_location'
   map.connect 'get_locations/:lat/:lon/all.:format', :controller => 'users', :action => 'get_locations'
