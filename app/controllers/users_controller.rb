@@ -43,6 +43,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.current_value = 100000;
+    @user.lattitude = 42367000
+    @user.longitude = -71259000
     Portfolio.new(:user_id => @user.id, :stock_id => 1, :quantity => 100000).save! ;
 
     respond_to do |format|

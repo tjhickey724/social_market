@@ -65,6 +65,35 @@ class PortfoliosController < ApplicationController
     end
   end
   
+    
+   def local_leaders
+     # lat1 < lat < lat2   and lon1 < lon < lon2 defines the "rectangle" of interest
+    @lat1 = params[:lat1]
+    @lat2 = params[:lat2]
+    @lon1 = params[:lon1]
+    @lon2 = params[:lon2]
+    @lat = current_user.lattitude || 41123456
+    @lon = current_user.longitude || -71234567
+    
+    @the_user = current_user
+    @the_rank = User.count(:conditions => 
+        ["current_value >= ? and (? <= lattitude) and (lattitude <= ?) and (? <= longitude) and (longitude <= ?)", 
+          @the_user.current_value,@lat1,@lat2,@lon1,@lon2])
+    @leaders = User.find(:all, :limit => 10, :order => "current_value desc",
+          :conditions =>  ["(? < lattitude) and (lattitude < ?) and (? < longitude) and (longitude < ?)", 
+          @lat1,@lat2,@lon1,@lon2])
+    @membership = User.count(:all,
+          :conditions =>  ["(? <= lattitude) and (lattitude <= ?) and (? <= longitude) and (longitude <= ?)", 
+          @lat1,@lat2,@lon1,@lon2])
+    @leaders_data = @leaders.collect do |a|
+      [a.username, a.current_value, a.updated_at, a.created_at, the_dist(a.lattitude,a.longitude,@lat,@lon)]
+    end
+    respond_to do |format|
+      format.html
+      format.json {render :json => [ @the_rank, @membership, @leaders_data]}
+    end
+  end
+  
   
   
   
@@ -289,6 +318,12 @@ end
     include HTTParty
   end
   
+  def the_dist(lat1,lon1,lat2,lon2) 
+    scale = 25000/360.0/1000000.0  # converstion from degrees to miles on the equator
+    vdist = (lat1 - lat2)*scale
+    hdist = (lon1-lon2)*Math.cos(lat2)*scale
+    Math.sqrt(vdist*vdist+ hdist*hdist)
+  end
   
   
 end

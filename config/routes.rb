@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'portfolio/remove/:symbol', :controller => 'portfolios', :action => 'remove'
   map.connect 'portfolio/rank.:format', :controller => 'portfolios', :action => 'rank'
   map.connect 'portfolio/leaders.:format', :controller => 'portfolios', :action => 'leaders'
+  map.connect 'portfolio/local_leaders.:format', :controller => 'portfolios', :action => 'local_leaders'
   
   map.connect 'set_location/:lat/:lon', :controller => 'users', :action => 'set_location'
   map.connect 'get_locations/:lat/:lon/all.:format', :controller => 'users', :action => 'get_locations'

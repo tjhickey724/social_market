@@ -1,0 +1,32 @@
+Your rank is <%=h @the_rank %> out of <%=h @membership %> members<br/>
+Your location (as stored on the server and which defaults to Brandeis University!) is <br/>
+(lat,lon) = (<%=h @the_user.lattitude %>, <%=h @the_user.longitude %>)<br/>
+and the region we are comparing is <br/>
+<%=h @lat1 %> < lat < <%=h @lat2 %> <br/>
+<%=h @lon1 %> < lon < <%=h @lon2 %> <br/>
+
+<br/>
+<table border="1" cellpadding="10"> 
+<tr>
+	<td> member </td>
+	<td> current value</td>
+	<td> starting date</td>
+</tr>
+<% @leaders_data.each do |a| %>
+<tr>
+	<td>
+		<%=h '%.2f' % a[4] %> miles
+    </td>
+	<td> 
+	 <a href="/portfolio/list/<%=h a[0] %>"><%=h a[0] %></a>
+	</td>  
+	<td>
+		 $<%=h a[1] %> (as of <%=h a[2] %>)
+	</td> 
+	<td>
+		<%=h a[3]  %>
+	</td>
+</tr>
+<% end %>
+
+</table>

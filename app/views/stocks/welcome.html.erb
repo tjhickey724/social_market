@@ -2,12 +2,23 @@
 <% if (@current_user) %>
 <h2>Start Playing</h2>
 <p> Once you register and log in, you can</p>
-<ul>
-	<li>
+<h3> Manage your portfolio</h3>
 		<a href="portfolio/list">View and manage your portfolio</a>
-	</li>
-	<li>
+<h3> View leading scores worldwide</h3>
 		<a href="portfolio/leaders">View the top scoring members and see your rank</a>
+<h3>View the leader in a particular region</h3>
+Your current position is recorded (in microdegrees) as<br/>
+(<%=h @current_user.lattitude %>, <%=h @current_user.longitude%>)<br/>
+Use the form below to look for the leaders in any local region (using microdegrees).<br/>
+
+		<form method="post" action="/portfolio/local_leaders">
+			lat1 <input type="text" name="lat1" value="40000000"/><br/>
+			lat2 <input type="text" name="lat2" value="44000000"/><br/>
+			lon1 <input type="text" name="lon1" value="-74000000"/><br/>
+			lon2 <input type="text" name="lon2" value="-71000000"/><br/>
+			<input type="submit" value="show local leaders"/>
+			
+		</form>
 	</li>
 </ul>
 

@@ -2949,3 +2949,24 @@ symbols.each do |sym|
  y.save!
 end
 
+
+# clustered around 42.2, -71.1
+users = [
+[ 'tim1', 42337143, -71117034, 123123],
+[ 'tim2', 42437143, -71517034, 123432],
+[ 'tim3', 43337143, -75117034, 99876],
+[ 'tim4', 42367143, -71147034, 88923],
+[ 'tim5', 42237143, -71917034, 101231],
+[ 'tim6', 45337143, -76117034, 99091],
+[ 'tim7', 42337643, -71117834, 91002],
+[ 'tim8', 42334143, -71417034, 100050]
+]
+
+users.each do |a,b,c,d|
+y=User.create(:username => a, :password =>"abcde", :password_confirmation => "abcde", :email => a+"@brandeis.edu",
+ :lattitude => b, :longitude => c, :current_value => d)
+
+ puts y.inspect
+ y.save
+  Portfolio.new(:user_id => y.id, :stock_id => 1, :quantity => y.current_value).save! ;
+end
