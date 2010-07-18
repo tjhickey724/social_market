@@ -5,18 +5,18 @@ Your rank is <%=h @the_rank %> out of <%=h @membership %> members
 	<td> current value</td>
 	<td> starting date</td>
 </tr>
-<%- @leaders.each do |a| %>
+<% @leaders.each do |a| %>
 <tr>
 	<td> 
 	 <a href="/portfolio/list/<%=h a.username %>"><%=h a.username %></a>
 	</td>  
 	<td>
-		 $<%= a.current_value %> as of <%=h a.updated_at.strftime "%m/%d/%Y" %>
+		 $<%=h a.current_value %> as of <%=h a.updated_at.strftime "%m/%d/%Y" %>
 	</td> 
 	<td>
 		<%=h a.created_at.strftime "%m/%d/%Y" %>
 	</td>
-
-<%- end %>
+</tr>
+<% end %>
 
 </table>

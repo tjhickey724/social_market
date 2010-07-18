@@ -3,11 +3,12 @@
 <h2>Portfolio for <%=@member_name %> </h2>
 <table border="1" style="margin-left:auto; margin-right:auto">
 <tr>
-	<td colspan="8" style="text-align:center;padding-bottom:20px">US Dollars $<%= @cash.quantity %> still available to purchase stock</td>
+	<td colspan="8" style="text-align:center;padding-bottom:20px">US Dollars $<%= @cash.quantity %> still available to purchase stock</td></tr> 
+	
 <tr>
-	<%- if @authorized %>
+	<% if @authorized %>
  <td>Buy</td>	
-    <%- end %>
+	<% end %>
  <td> Sym</td>
  <td> Qty</td>
  <td> Ask </td>

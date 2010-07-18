@@ -1,5 +1,5 @@
 <h1>Welcome!</h1>
-<%- if (@current_user) %>
+<% if (@current_user) %>
 <h2>Start Playing</h2>
 <p> Once you register and log in, you can</p>
 <ul>
@@ -10,9 +10,9 @@
 		<a href="portfolio/leaders">View the top scoring members and see your rank</a>
 	</li>
 </ul>
-<%- else %>
+
 <h2>Login or Register now to start playing </h2>
-<%- end %>
+<% end %>
 
 Your goal is to make as much <b>fantasy</b> money as you can by investing $100,000 in <b>fantasy</b> money in at most 10 stocks.
 This site tracks the value of your <b>fantasy</b> investment over time and ranks your performance with all other players.
