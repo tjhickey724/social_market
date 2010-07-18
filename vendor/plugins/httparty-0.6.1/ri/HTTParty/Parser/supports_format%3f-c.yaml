@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Symbol] format e.g. :json, :xml @return [Boolean]"
+full_name: HTTParty::Parser::supports_format?
+is_singleton: true
+name: supports_format?
+params: (format)
+visibility: public

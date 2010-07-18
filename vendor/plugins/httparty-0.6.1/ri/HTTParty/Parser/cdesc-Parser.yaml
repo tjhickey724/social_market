@@ -1,0 +1,74 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The response body of the request @return [String]
+  name: body
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The intended parsing format for the request @return [Symbol] e.g. :json
+  name: format
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: format_from_mimetype
+- !ruby/object:RI::MethodSummary 
+  name: formats
+- !ruby/object:RI::MethodSummary 
+  name: supported_formats
+- !ruby/object:RI::MethodSummary 
+  name: supports_format?
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The default parser used by HTTParty, supports xml, json, html, yaml, and plain text.
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Custom Parsers
+- !ruby/struct:SM::Flow::P 
+  body: If you'd like to do your own custom parsing, subclassing HTTParty::Parser will make that process much easier. There are a few different ways you can utilize HTTParty::Parser as a superclass.
+- !ruby/struct:SM::Flow::P 
+  body: "@example Intercept the parsing for all formats"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class SimpleParser &lt; HTTParty::Parser\n    def parse\n      perform_parsing\n    end\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Add the atom format and parsing method to the default parser"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class AtomParsingIncluded &lt; HTTParty::Parser\n    SupportedFormats.merge!(\n      {&quot;application/atom+xml&quot; =&gt; :atom}\n    )\n\n    def atom\n      perform_atom_parsing\n    end\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Only support the atom format"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class ParseOnlyAtom &lt; HTTParty::Parser\n    SupportedFormats = {&quot;application/atom+xml&quot; =&gt; :atom}\n\n    def atom\n      perform_atom_parsing\n    end\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@abstract Read the Custom Parsers section for more information."
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SupportedFormats
+  value: "{       'text/xml'               => :xml,       'application/xml'        => :xml,       'application/json'       => :json,       'text/json'              => :json,       'application/javascript' => :json,       'text/javascript'        => :json,       'text/html'              => :html,       'application/x-yaml'     => :yaml,       'text/yaml'              => :yaml,       'text/plain'             => :plain"
+full_name: HTTParty::Parser
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: html
+- !ruby/object:RI::MethodSummary 
+  name: json
+- !ruby/object:RI::MethodSummary 
+  name: parse
+- !ruby/object:RI::MethodSummary 
+  name: parse_supported_format
+- !ruby/object:RI::MethodSummary 
+  name: plain
+- !ruby/object:RI::MethodSummary 
+  name: supports_format?
+- !ruby/object:RI::MethodSummary 
+  name: xml
+- !ruby/object:RI::MethodSummary 
+  name: yaml
+name: Parser
+superclass: Object

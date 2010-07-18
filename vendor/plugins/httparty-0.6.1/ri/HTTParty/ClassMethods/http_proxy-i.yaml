@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Allows setting http proxy information to be used
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Foo\n    include HTTParty\n    http_proxy 'http://foo.com', 80\n  end\n"
+full_name: HTTParty::ClassMethods#http_proxy
+is_singleton: false
+name: http_proxy
+params: (addr=nil, port = nil)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Instantiate an instance of ResponseError with a Net::HTTPResponse object @param [Net::HTTPResponse]
+full_name: HTTParty::ResponseError::new
+is_singleton: true
+name: new
+params: (response)
+visibility: public

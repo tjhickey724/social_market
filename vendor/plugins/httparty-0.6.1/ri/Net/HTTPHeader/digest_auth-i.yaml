@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Net::HTTPHeader#digest_auth
+is_singleton: false
+name: digest_auth
+params: (user, password, response)
+visibility: public

@@ -1,0 +1,39 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: delete
+- !ruby/object:RI::MethodSummary 
+  name: get
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: included
+- !ruby/object:RI::MethodSummary 
+  name: options
+- !ruby/object:RI::MethodSummary 
+  name: post
+- !ruby/object:RI::MethodSummary 
+  name: put
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: BasicObject
+  value: "::BasicObject #:nodoc:"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "\"0.6.1\".freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CRACK_DEPENDENCY
+  value: "\"0.1.8\".freeze"
+full_name: HTTParty
+includes: []
+
+instance_methods: []
+
+name: HTTParty
+superclass: 

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Allows setting a default timeout for all HTTP calls Timeout is specified in seconds.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Foo\n    include HTTParty\n    default_timeout 10\n  end\n"
+full_name: HTTParty::ClassMethods#default_timeout
+is_singleton: false
+name: default_timeout
+params: (t)
+visibility: public

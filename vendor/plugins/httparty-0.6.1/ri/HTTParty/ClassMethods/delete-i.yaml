@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Perform a DELETE request to a path
+full_name: HTTParty::ClassMethods#delete
+is_singleton: false
+name: delete
+params: (path, options={})
+visibility: public

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_supported_format (HTTParty::Parser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/httparty/parser.rb, line 135</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_supported_format</span>
+      <span class="ruby-identifier">send</span>(<span class="ruby-identifier">format</span>)
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NoMethodError</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-node">&quot;#{self.class.name} has not implemented a parsing method for the #{format.inspect} format.&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

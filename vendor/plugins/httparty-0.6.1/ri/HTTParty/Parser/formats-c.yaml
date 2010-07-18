@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Hash] the SupportedFormats hash"
+full_name: HTTParty::Parser::formats
+is_singleton: true
+name: formats
+params: ()
+visibility: public

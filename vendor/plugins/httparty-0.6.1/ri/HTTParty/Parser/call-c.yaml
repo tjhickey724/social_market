@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Instantiate the parser and call {#parse}. @param [String] body the response body @param [Symbol] format the response format @return parsed response
+full_name: HTTParty::Parser::call
+is_singleton: true
+name: call
+params: (body, format)
+visibility: public

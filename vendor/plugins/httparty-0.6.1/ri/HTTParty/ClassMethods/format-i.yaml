@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Allows setting the format with which to parse. Must be one of the allowed formats ie: json, xml"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Foo\n    include HTTParty\n    format :json\n  end\n"
+full_name: HTTParty::ClassMethods#format
+is_singleton: false
+name: format
+params: (f = nil)
+visibility: public

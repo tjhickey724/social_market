@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Allows setting a PEM file to be used
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Foo\n    include HTTParty\n    pem File.read('/home/user/my.pem')\n  end\n"
+full_name: HTTParty::ClassMethods#pem
+is_singleton: false
+name: pem
+params: (pem_contents)
+visibility: public

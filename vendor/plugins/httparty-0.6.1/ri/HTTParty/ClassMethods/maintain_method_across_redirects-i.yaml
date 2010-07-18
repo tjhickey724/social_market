@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that you wish to maintain the chosen HTTP method across redirects. The default behavior is to follow redirects via the GET method. If you wish to maintain the original method, you can set this option to true.
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Foo\n    include HTTParty\n    base_uri 'http://google.com'\n    maintain_method_across_redirects true\n  end\n"
+full_name: HTTParty::ClassMethods#maintain_method_across_redirects
+is_singleton: false
+name: maintain_method_across_redirects
+params: (value = true)
+visibility: public

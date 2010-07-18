@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Allows making a post request to a url.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Foo\n    include HTTParty\n  end\n\n  # Simple post with full url and setting the body\n  Foo.post('http://foo.com/resources', :body =&gt; {:bar =&gt; 'baz'})\n\n  # Simple post with full url using :query option,\n  # which gets set as form data on the request.\n  Foo.post('http://foo.com/resources', :query =&gt; {:bar =&gt; 'baz'})\n"
+full_name: HTTParty::ClassMethods#post
+is_singleton: false
+name: post
+params: (path, options={})
+visibility: public

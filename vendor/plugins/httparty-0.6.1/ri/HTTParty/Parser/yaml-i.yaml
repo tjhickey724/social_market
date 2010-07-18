@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: HTTParty::Parser#yaml
+is_singleton: false
+name: yaml
+params: ()
+visibility: protected

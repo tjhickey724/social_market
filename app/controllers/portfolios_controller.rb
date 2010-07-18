@@ -1,4 +1,4 @@
-require 'HTTParty'
+require 'HTTParty'  # this is creating problems on Heroku!
 
 class PortfoliosController < ApplicationController
   

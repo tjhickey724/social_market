@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: HTTParty::ClassMethods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">HTTParty::ClassMethods</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/httparty_rb.html">
+                lib/httparty.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000010">base_uri</a>&nbsp;&nbsp;
+      <a href="#M000011">basic_auth</a>&nbsp;&nbsp;
+      <a href="#M000017">cookies</a>&nbsp;&nbsp;
+      <a href="#M000015">debug_output</a>&nbsp;&nbsp;
+      <a href="#M000013">default_params</a>&nbsp;&nbsp;
+      <a href="#M000014">default_timeout</a>&nbsp;&nbsp;
+      <a href="#M000026">delete</a>&nbsp;&nbsp;
+      <a href="#M000012">digest_auth</a>&nbsp;&nbsp;
+      <a href="#M000018">format</a>&nbsp;&nbsp;
+      <a href="#M000023">get</a>&nbsp;&nbsp;
+      <a href="#M000027">head</a>&nbsp;&nbsp;
+      <a href="#M000016">headers</a>&nbsp;&nbsp;
+      <a href="#M000009">http_proxy</a>&nbsp;&nbsp;
+      <a href="#M000020">maintain_method_across_redirects</a>&nbsp;&nbsp;
+      <a href="#M000019">no_follow</a>&nbsp;&nbsp;
+      <a href="#M000028">options</a>&nbsp;&nbsp;
+      <a href="#M000022">parser</a>&nbsp;&nbsp;
+      <a href="#M000021">pem</a>&nbsp;&nbsp;
+      <a href="#M000024">post</a>&nbsp;&nbsp;
+      <a href="#M000025">put</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000010.html');return false;">
+          <span class="method-name">base_uri</span><span class="method-args">(uri=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting a base uri to be used for each request. Will normalize uri
+to include http, etc.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    base_uri 'twitter.com'
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000011.html');return false;">
+          <span class="method-name">basic_auth</span><span class="method-args">(u, p)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting basic authentication username and password.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    basic_auth 'username', 'password'
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000017.html');return false;">
+          <span class="method-name">cookies</span><span class="method-args">(h={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000015.html');return false;">
+          <span class="method-name">debug_output</span><span class="method-args">(stream = $stderr)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set an output stream for debugging, defaults to $stderr. The output stream
+is passed on to Net::HTTP#set_debug_output.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    debug_output $stderr
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000013.html');return false;">
+          <span class="method-name">default_params</span><span class="method-args">(h={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting default parameters to be appended to each request. Great for
+api keys and such.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    default_params :api_key =&gt; 'secret', :another =&gt; 'foo'
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000014.html');return false;">
+          <span class="method-name">default_timeout</span><span class="method-args">(t)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting a default timeout for all HTTP calls Timeout is specified in
+seconds.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    default_timeout 10
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000026.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000026.html');return false;">
+          <span class="method-name">delete</span><span class="method-args">(path, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Perform a DELETE request to a path
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000012.html');return false;">
+          <span class="method-name">digest_auth</span><span class="method-args">(u, p)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting digest authentication username and password.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    digest_auth 'username', 'password'
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000018.html');return false;">
+          <span class="method-name">format</span><span class="method-args">(f = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting the <a href="ClassMethods.html#M000018">format</a> with
+which to parse. Must be one of the allowed formats ie: json, xml
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    format :json
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000023.html');return false;">
+          <span class="method-name">get</span><span class="method-args">(path, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows making a <a href="ClassMethods.html#M000023">get</a> request to a
+url.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+  end
+
+  # Simple get with full url
+  Foo.get('http://foo.com/resource.json')
+
+  # Simple get with full url and query parameters
+  # ie: http://foo.com/resource.json?limit=10
+  Foo.get('http://foo.com/resource.json', :query =&gt; {:limit =&gt; 10})
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000027.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000027.html');return false;">
+          <span class="method-name">head</span><span class="method-args">(path, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Perform a HEAD request to a path
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000016.html');return false;">
+          <span class="method-name">headers</span><span class="method-args">(h={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting HTTP <a href="ClassMethods.html#M000016">headers</a> to be
+used for each request.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    headers 'Accept' =&gt; 'text/html'
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000009.html');return false;">
+          <span class="method-name">http_proxy</span><span class="method-args">(addr=nil, port = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting http proxy information to be used
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    http_proxy 'http://foo.com', 80
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000020.html');return false;">
+          <span class="method-name">maintain_method_across_redirects</span><span class="method-args">(value = true)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declare that you wish to maintain the chosen HTTP method across redirects.
+The default behavior is to follow redirects via the GET method. If you wish
+to maintain the original method, you can set this option to true.
+</p>
+<p>
+@example
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    base_uri 'http://google.com'
+    maintain_method_across_redirects true
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000019.html');return false;">
+          <span class="method-name">no_follow</span><span class="method-args">(value = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declare whether or not to follow redirects. When true, an {<a
+href="RedirectionTooDeep.html">HTTParty::RedirectionTooDeep</a>} error will
+raise upon encountering a redirect. You can then gain access to the
+response object via HTTParty::RedirectionTooDeep#response.
+</p>
+<p>
+@see HTTParty::ResponseError#response
+</p>
+<p>
+@example
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    base_uri 'http://google.com'
+    no_follow true
+  end
+
+  begin
+    Foo.get('/')
+  rescue HTTParty::RedirectionTooDeep =&gt; e
+    puts e.response.body
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000028.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000028.html');return false;">
+          <span class="method-name">options</span><span class="method-args">(path, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Perform an OPTIONS request to a path
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000022.html');return false;">
+          <span class="method-name">parser</span><span class="method-args">(custom_parser = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting a custom <a href="ClassMethods.html#M000022">parser</a> for
+the response.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    parser Proc.new {|data| ...}
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000021.html');return false;">
+          <span class="method-name">pem</span><span class="method-args">(pem_contents)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting a PEM file to be used
+</p>
+<pre>
+  class Foo
+    include HTTParty
+    pem File.read('/home/user/my.pem')
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000024.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000024.html');return false;">
+          <span class="method-name">post</span><span class="method-args">(path, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows making a <a href="ClassMethods.html#M000024">post</a> request to a
+url.
+</p>
+<pre>
+  class Foo
+    include HTTParty
+  end
+
+  # Simple post with full url and setting the body
+  Foo.post('http://foo.com/resources', :body =&gt; {:bar =&gt; 'baz'})
+
+  # Simple post with full url using :query option,
+  # which gets set as form data on the request.
+  Foo.post('http://foo.com/resources', :query =&gt; {:bar =&gt; 'baz'})
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="ClassMethods.src/M000025.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000025.html');return false;">
+          <span class="method-name">put</span><span class="method-args">(path, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Perform a PUT request to a path
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

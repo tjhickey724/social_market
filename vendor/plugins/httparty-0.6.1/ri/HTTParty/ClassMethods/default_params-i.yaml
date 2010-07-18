@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Allows setting default parameters to be appended to each request. Great for api keys and such.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Foo\n    include HTTParty\n    default_params :api_key =&gt; 'secret', :another =&gt; 'foo'\n  end\n"
+full_name: HTTParty::ClassMethods#default_params
+is_singleton: false
+name: default_params
+params: (h={})
+visibility: public

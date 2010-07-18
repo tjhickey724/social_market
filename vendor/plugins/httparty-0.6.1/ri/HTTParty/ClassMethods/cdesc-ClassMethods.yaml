@@ -1,0 +1,54 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: HTTParty::ClassMethods
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: base_uri
+- !ruby/object:RI::MethodSummary 
+  name: basic_auth
+- !ruby/object:RI::MethodSummary 
+  name: cookies
+- !ruby/object:RI::MethodSummary 
+  name: debug_output
+- !ruby/object:RI::MethodSummary 
+  name: default_params
+- !ruby/object:RI::MethodSummary 
+  name: default_timeout
+- !ruby/object:RI::MethodSummary 
+  name: delete
+- !ruby/object:RI::MethodSummary 
+  name: digest_auth
+- !ruby/object:RI::MethodSummary 
+  name: format
+- !ruby/object:RI::MethodSummary 
+  name: get
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: headers
+- !ruby/object:RI::MethodSummary 
+  name: http_proxy
+- !ruby/object:RI::MethodSummary 
+  name: maintain_method_across_redirects
+- !ruby/object:RI::MethodSummary 
+  name: no_follow
+- !ruby/object:RI::MethodSummary 
+  name: options
+- !ruby/object:RI::MethodSummary 
+  name: parser
+- !ruby/object:RI::MethodSummary 
+  name: pem
+- !ruby/object:RI::MethodSummary 
+  name: post
+- !ruby/object:RI::MethodSummary 
+  name: put
+name: ClassMethods
+superclass: 

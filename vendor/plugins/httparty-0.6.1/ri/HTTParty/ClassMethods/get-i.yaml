@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Allows making a get request to a url.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Foo\n    include HTTParty\n  end\n\n  # Simple get with full url\n  Foo.get('http://foo.com/resource.json')\n\n  # Simple get with full url and query parameters\n  # ie: http://foo.com/resource.json?limit=10\n  Foo.get('http://foo.com/resource.json', :query =&gt; {:limit =&gt; 10})\n"
+full_name: HTTParty::ClassMethods#get
+is_singleton: false
+name: get
+params: (path, options={})
+visibility: public

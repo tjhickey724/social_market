@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: HTTParty::Parser#plain
+is_singleton: false
+name: plain
+params: ()
+visibility: protected

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Allows setting HTTP headers to be used for each request.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class Foo\n    include HTTParty\n    headers 'Accept' =&gt; 'text/html'\n  end\n"
+full_name: HTTParty::ClassMethods#headers
+is_singleton: false
+name: headers
+params: (h={})
+visibility: public

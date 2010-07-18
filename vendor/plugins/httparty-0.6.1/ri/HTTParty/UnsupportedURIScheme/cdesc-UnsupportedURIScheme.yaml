@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Exception raised when using a URI scheme other than HTTP or HTTPS
+constants: []
+
+full_name: HTTParty::UnsupportedURIScheme
+includes: []
+
+instance_methods: []
+
+name: UnsupportedURIScheme
+superclass: StandardError
