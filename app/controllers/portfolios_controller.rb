@@ -17,7 +17,7 @@ class PortfoliosController < ApplicationController
       sym = stock_id_to_symbol(a.stock_id)
       bid = get_bid_price sym
       ask = get_ask_price sym
-      [sym, a.quantity, ask, bid, (a.quantity * bid.to_f + 0.5).to_i]
+      [sym, a.quantity, ask.to_f, bid.to_f, (a.quantity * bid.to_f + 0.5).to_f]
     end
 
     @y = @y1.reject do |a,b,c,d,e|
